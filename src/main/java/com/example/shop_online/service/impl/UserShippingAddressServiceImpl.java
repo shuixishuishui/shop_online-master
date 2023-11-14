@@ -47,7 +47,7 @@ public class UserShippingAddressServiceImpl extends ServiceImpl<UserShippingAddr
         if (addressVO.getIsDefault() == AddressDefaultEnum.DEFAULT_ADDRESS.getValue()){
             UserShippingAddress address = baseMapper.selectOne(new LambdaQueryWrapper<UserShippingAddress>().eq(UserShippingAddress::getUserId,addressVO.getUserId()).eq(UserShippingAddress::getIsDefault,AddressDefaultEnum.DEFAULT_ADDRESS.getValue()));
             if (address != null){
-                address.setIsDefault(AddressDefaultEnum.NOT_DEFAULT_ADDRESS.getValue());
+                //address.setIsDefault(AddressDefaultEnum.NOT_DEFAULT_ADDRESS.getValue());
                 updateById(address);
             }
         }
@@ -80,7 +80,7 @@ public class UserShippingAddressServiceImpl extends ServiceImpl<UserShippingAddr
         LambdaQueryWrapper<UserShippingAddress> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(UserShippingAddress::getId, id);
         UserShippingAddress address = baseMapper.selectOne(wrapper);
-        address.setDeleteFlag(DeleteFlagEnum.OPEN_DELETE_FLAG.getValue());
+        //address.setDeleteFlag(DeleteFlagEnum.OPEN_DELETE_FLAG.getValue());
         updateById(address);
         return address.getId();
     }
